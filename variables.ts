@@ -20,8 +20,21 @@ let a =true
 // The Any Type 
 
 
-let thing: any ="hello"
-thing=1
-thing=false
-thing.toUpperCase()
-thing()
+// let thing: any ="hello"
+// thing=1
+// thing=false
+// thing.toUpperCase()
+// thing()
+
+
+const movies=["Arrival","Amadeus","The Thing"]
+
+// let foundMovie //type any ,you want to avoid this
+
+let foundMovie: string
+
+for (let movie of movies){
+    if (movie==="Amadeus"){
+        foundMovie="Amadeus"
+    }
+}
