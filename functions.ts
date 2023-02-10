@@ -61,3 +61,16 @@ function prinTwice(msg:string): void{ //function prinTwice(msg: string): void
 }
 
 
+//The never type
+function makeError(msg:string):never{
+    return msg //gives an error because never anottation never returns anything.Type 'string' is not assignable to type 'never'
+throw new ErrorEvent(msg)
+}
+
+function gameLoop():never{
+while(true) {
+    console.log("Game loop is running")
+}
+
+return true //Type 'boolean' is not assignable to type 'never'.
+}
