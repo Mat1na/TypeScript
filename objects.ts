@@ -37,7 +37,7 @@ function doubleCoordinate(point:Point):Point {
 
 
     //Nested objects
-    type Song{
+    type Song={
         title:string,
         artist:string,
         numStreams:number,
@@ -67,3 +67,61 @@ function printSong(song:Song):void{
 
 calculatePayout(mySong)
 printSong(mySong)
+
+
+// Optional properties
+
+type prop={
+    x:number;
+    y:number;
+    z?:number; //optional
+}
+
+const myProp:prop= {x:1, y:1, //z:1
+};
+
+//Readonly modifier
+type User={
+    readonly id:number;
+    username:string;
+}
+
+const user:User = {
+    id:123,
+    username:"catgurl",
+}
+console.log(user.id) //no problem
+// user.id = 0 //Cannot assign to 'id' because it is a read-only property meaning connot change
+
+
+
+
+//Intersection type
+
+type Circle={
+    radius:number;
+}
+
+type Colorful={
+    color:string;
+}
+
+type ColorfulCircle= Circle & Colorful
+
+const happyFace: ColorfulCircle={
+    radius:4,
+    color:"yellow"
+}
+
+
+type Cat={
+    numLives:number
+}
+
+type Dog={
+    breed:string
+}
+
+type CatDog=Cat & Dog & {
+    age:number
+}
