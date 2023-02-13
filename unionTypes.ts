@@ -33,16 +33,29 @@ function calcTax(price: number | string, tax: number) {
 
 }
 
-const stuff:any[]=[12,2,3, true, "name",{}] //better to avoid type any though
+const stuff: any[] = [12, 2, 3, true, "name", {}] //better to avoid type any though
 
 //** IMPORTANT
 
 // const things: number | string[] // whithout the parenthesis its a number OR an array of strings
 // const things: number[] | string[] // whithout the parenthesis its an array number OR an array of strings
 
-const things: (number | string)[] = [12,2,'das'] // this is an array of strings or numbers or both
+const things: (number | string)[] = [12, 2, 'das'] // this is an array of strings or numbers or both
 
-const coordinates:(Point | Loc)[] = []
-coordinates.push ({ lat: 454.54, lng: 0 })
-coordinates.push({ x: 0, y:5})
+const coordinates: (Point | Loc)[] = []
+coordinates.push({ lat: 454.54, lng: 0 })
+coordinates.push({ x: 0, y: 5 })
 
+//Literal types
+
+const zero: 0 = 0
+
+//Literal +union type
+
+let mood: "Happy" | "Sad"
+
+mood = "Sad"
+
+type DayOfWeek = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday"
+
+let today:DayOfWeek="Monday"
