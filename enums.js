@@ -11,13 +11,21 @@ function isDelivered(status) {
     return status === OrderStatus.DELEVERD;
 }
 isDelivered(OrderStatus.RETURNED);
+//we can assign strings  // add const if you don't want to polude your JS with extra code as above
+var ArrowKeys;
+(function (ArrowKeys) {
+    ArrowKeys["UP"] = "up";
+    ArrowKeys["DOWN"] = "down";
+    ArrowKeys["LEFT"] = "left";
+    ArrowKeys["RIGHT"] = "right";
+})(ArrowKeys || (ArrowKeys = {}));
+
+ArrowKeys.DOWN; //(enum member) ArrowKeys.DOWN = "down"
 
 
-
-"down" /* ArrowKeys.DOWN */; //(enum member) ArrowKeys.DOWN = "down"
 
 
 var order = {
     orderNumber: 45446546,
-    status: OrderStatus.PENDING
+    status: 0 /* OrderStatus2.PENDING */
 };

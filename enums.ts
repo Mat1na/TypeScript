@@ -18,7 +18,7 @@ isDelivered(OrderStatus.RETURNED)
 
 
 //we can assign strings  // add const if you don't want to polude your JS with extra code as above
-const enum ArrowKeys{ 
+enum ArrowKeys{ 
     UP='up',
     DOWN='down',
     LEFT='left',
@@ -27,7 +27,14 @@ const enum ArrowKeys{
 
 ArrowKeys.DOWN //(enum member) ArrowKeys.DOWN = "down"
 
+
+const enum OrderStatus2{
+    PENDING, //if we don't assigne values then TS will: (enum member) OrderStatus.PENDING = 0
+    SHIPPED,
+    DELEVERD,
+    RETURNED
+}
 const order={
     orderNumber:45446546,
-    status:OrderStatus.PENDING
+    status:OrderStatus2.PENDING
 }
