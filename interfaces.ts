@@ -56,16 +56,53 @@ interface  Dog{
 
 interface  Dog{
     breed:string;
-   barck():string
+   bark():string
 }
 
 const elton:Dog = {
     name: "Elton",
     age:0.5,
     breed:"Australian",
-    barck(){
+    bark(){
         return "Woof Woof";
     }
 }
 
+//we use extends in order for an interface to inherit types from another interface
+interface ServiceDog extends Dog{
+  job:"drug sniffer" | "bomb" |"guide dog"
+}
 
+const chewy:ServiceDog = {
+  name: "Chewy",
+  age:4.5,
+  breed:"Lab",
+  bark(){
+      return "Woof Woof"
+  },
+  job:"guide dog"
+}
+
+//multiple interface
+
+interface Pers{
+  name:string;
+}
+interface Employee{
+  readonly id:number;
+  email:string;
+}
+
+interface Engineer extends Pers,Employee{
+  level:string;
+  languages:string[];
+}
+
+
+
+//type aliases vs interface
+
+//*******interface can ONLY describe the shape of an object
+//*******We can reopen interfaces and addon
+//*******You can use extends with interface with type aliases you can use intersection types and & e.g type Person = Name & {
+ // age:number}
