@@ -1,72 +1,73 @@
+"use strict";
+var _Player_score;
 console.log("it's working!");
+// public keywork available anywere
+// private available only in the class it's defined
+// protected in available also in children classes
 class Player {
-  static description="Player in our game"
-    #score=0 //Property '#score' is not accessible outside class 'Player' because it has a private identifier.Also you cannot change the value. that's why we create the functions getscore and updatescore
-    numLives=10
-  constructor(first, last) {
-    this.first = first;
-    this.last = last;
-  }
-  //getters get+method
-get fullName(){
-  return `${this.first} ${this.last}`
-}
-
-  // getScore(){
-  //   return this.#score
-  // }
-
-  get score(){
-    return this.#score
-  }
-
-  //setters
-  // updateScore(newScore){
-  //   this.#score= newScore
-  // }
-  set score(newScore){
-    if(newScore<0){
-      throw new Error("Score must always be possitive")
+    constructor(first, last) {
+        _Player_score.set(this, 0);
+        this.score2 = 0;
+        this.first = first;
+        this.last = last;
+        this.secretMethod();
     }
-    this.#score= newScore
-  }
-
-  set fullName(newName){
-    const [first ,last]=newName.split(" ")
-    this.first = first;
-    this.last = last;
-  }
-  
-  taunt() {
-    console.log("BOOYAH");
-  }
-  loseLife(){
-    this.numLives -=1
-  }
+    secretMethod() {
+        console.log("secret method");
+    }
 }
-
-class AdminPlayer extends Player{
-  constructor(first,last,powers){
-    super(first,last) // Must call super constructor in derived class before accessing 'this' or returning from derived constructor
-    this.powers=powers 
-  }
-  isAdmin=true
+_Player_score = new WeakMap();
+var elton = new Player("Elton", "Steele");
+// console.log(elton.score)
+// elton.first="matina" //Cannot assign to 'first' because it is a read-only property
+// elton.secretMethod() //Property 'secretMethod' is private and only accessible within class 'Player'
+//short
+class PlayerShort {
+    constructor(first, last, _score) {
+        this.first = first;
+        this.last = last;
+        this._score = _score;
+    }
+    secretMethod() {
+        console.log("secret method");
+    }
+    get fullName() {
+        return `${this.first} ${this.last}`;
+    }
+    get score() {
+        return this._score;
+    }
+    set score(newScore) {
+        if (newScore < 0) {
+            throw new Error("Score cannot be negative");
+        }
+        this._score = newScore;
+    }
 }
-const admin= new AdminPlayer("admin","something",["delete","restore"])
-console.log(admin);
-
-const player1 = new Player("blue", "steele");
-player1.taunt();
-console.log(player1);
-console.log(player1.fullName); //out of the class we don't treat it like a method but as a property
-player1.fullName="Amy Adams"
-player1.loseLife()
-// console.log(player1.getScore());
-// console.log(player1.updateScore(28));
-// player1.score=-3
-player1.score=28
-// console.log(player1.getScore());
-console.log(player1.score);
-console.log(player1);
-
- 
+class SuperPlayer extends Player {
+    constructor() {
+        super(...arguments);
+        this.isAdmin = true;
+    }
+    maxScore() {
+        // this._score //Property '_score' does not exist on type 'SuperPlayer'
+    }
+}
+var mike = new PlayerShort("Mike", "Steele", 10);
+console.log(mike);
+class Bike {
+    constructor(color) {
+        this.color = color;
+    }
+}
+const bike1 = new Bike("red");
+class Jacket {
+    constructor(bland, color) {
+        this.bland = bland;
+        this.color = color;
+    }
+}
+const jacket1 = new Jacket("prada", "black");
+//abstract classes
+class Employee {
+}
