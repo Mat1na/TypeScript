@@ -77,8 +77,10 @@ class Jacket implements Colorful {
   const jacket1 = new Jacket("prada","black");
 
 
-  //abstract classes
+  //abstract classes 
+
+  //Cannot create an new instance with abstract class
 
   abstract class Employee{
-    
+    constructor (public first:string, public last : string){}
   }
