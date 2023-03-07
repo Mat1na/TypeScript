@@ -102,3 +102,12 @@ console.log(betty.getPay())
 
 const matina = new FullTimmeEmployee("Matina", "White", 95000);
 console.log(matina.getPay());
+
+
+//Generics
+
+const nums:Array<number>=[]
+const colors: Array<string>=[]
+const inputEl=document.querySelector<HTMLInputElement>("#username")!
+console.dir(inputEl)
+inputEl.value="Hacked"

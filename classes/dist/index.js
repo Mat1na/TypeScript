@@ -94,3 +94,9 @@ const betty = new FullTimmeEmployee("Betty", "White", 95000);
 console.log(betty.getPay());
 const matina = new FullTimmeEmployee("Matina", "White", 95000);
 console.log(matina.getPay());
+//Generics
+const nums = [];
+const colors = [];
+const inputEl = document.querySelector("#username");
+console.dir(inputEl);
+inputEl.value = "Hacked";
