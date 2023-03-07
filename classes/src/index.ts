@@ -1,6 +1,6 @@
 console.log("it's working!");
 
-// public keywork available anywere
+// public keyword available anywere
 // private available only in the class it's defined
 // protected in available also in children classes
 
@@ -71,16 +71,34 @@ class Bike implements Colorful {
 const bike1 = new Bike("red");
 
 class Jacket implements Colorful {
-    constructor(public bland: string,public color: string) {}
+  constructor(public bland: string, public color: string) {}
+}
+
+const jacket1 = new Jacket("prada", "black");
+
+//abstract classes
+
+//Cannot create an new instance with abstract class
+
+abstract class Employee {
+  constructor(public first: string, public last: string) {}
+  abstract getPay(): number;
+  greet() {
+    console.log("hello");
   }
+}
 
-  const jacket1 = new Jacket("prada","black");
-
-
-  //abstract classes 
-
-  //Cannot create an new instance with abstract class
-
-  abstract class Employee{
-    constructor (public first:string, public last : string){}
+class FullTimmeEmployee extends Employee {
+  constructor(public first: string, public last: string, private salary:number) {
+super(first,last)
   }
+  getPay(): number {
+    return this.salary;
+  }
+}
+
+const betty=new FullTimmeEmployee("Betty","White",95000)
+console.log(betty.getPay())
+
+const matina = new FullTimmeEmployee("Matina", "White", 95000);
+console.log(matina.getPay());
